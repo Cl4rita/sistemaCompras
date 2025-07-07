@@ -23,6 +23,8 @@ app.post('/products', produtosController.cadastrar)
 app.get('/products', produtosController.listar)
 app.put('/products/:id', produtosController.atualizar)
 app.delete('/products/:id', produtosController.apagar)
+app.get('/usuario/nome/:nome', usuariosController.consultarNome)
+app.get('/usuario/:id', usuariosController.consultarId)
 
 app.post('/users', usuariosController.cadastrar)
 app.get('/users', usuariosController.listar)

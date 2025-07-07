@@ -35,12 +35,12 @@ const Compras = db.define('/compras', {
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    fk_idEntrega:{
+    fk_idUsuario:{
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'entregas',
-            key: 'idEntrega'
+            model: 'usuarios',
+            key: 'idUsuario'
         }
     },
     fk_idProduto:{
