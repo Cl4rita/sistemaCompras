@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const db =  require('../db/conn')
 
-const Produtos = db.define('/produtos', {
-    idProdutos:{
+const Products = db.define('/products', {
+    idProduto:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -34,10 +34,14 @@ const Produtos = db.define('/produtos', {
     brand:{
         type: DataTypes.STRING(50),
         allowNull: false
+    },
+    thumbnail:{
+        type: DataTypes.STRING(50),
+        allowNull: false
     }
 },{
     timestamps: false,
     tableName: 'produtos'
 })
 
-module.exports = Produtos
+module.exports = Products

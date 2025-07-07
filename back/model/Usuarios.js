@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const db =  require('../db/conn')
 
-const Usuarios = db.define('/usuarios', {
-    idUsuarios:{
+const Users = db.define('/users', {
+    idUsuario:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -42,7 +42,7 @@ const Usuarios = db.define('/usuarios', {
         allowNull: false
     },
     birthDate:{
-        type: DataTypes.STRING(50),
+        type: DataTypes.DATE,
         allowNull: false
     }
 },{
@@ -50,4 +50,4 @@ const Usuarios = db.define('/usuarios', {
     tableName: 'usuarios'
 })
 
-module.exports = Usuarios
+module.exports = Users
