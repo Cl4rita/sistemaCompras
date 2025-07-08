@@ -7,15 +7,15 @@ const Users = db.define('/users', {
         primaryKey: true,
         autoIncrement: true
     },
-    firstName:{
+    primeiroNome:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    lastName:{
+    sobrenome:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    age:{
+    idade:{
         type: DataTypes.INTEGER,
         allowNull: false
     },
@@ -24,24 +24,24 @@ const Users = db.define('/users', {
         unique: true,
         allowNull: false
     },
-    phone:{
+    telefone:{
         type: DataTypes.STRING(50),
         unique: true,
         allowNull: false
     },
-    address:{
+    endereco:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    city:{
+    cidade:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    state:{
+    estado:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    birthDate:{
+    dataNasci:{
         type: DataTypes.DATE,
         allowNull: false
     }

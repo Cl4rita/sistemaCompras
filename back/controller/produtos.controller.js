@@ -51,12 +51,35 @@ const apagar = async (req,res) => {
         res.status(500).json({message: 'Erro ao apagar o produto'})
     }
 }
-
-// const consultarNome = async (req,res) => {
-    
-// }
-// const consultarId = async (req,res) => {
-
-// }
+const consultarId = async (req,res) => {
+    const id = req.params.id
+    try{
+        const dados = await Usuarios.findByPk(id)
+        if(dados){
+            res.status(200).json(dados)
+        }else{
+            res.status(404).json({ message: 'Usuário não encontrado' })
+        }
+    }catch(err){
+        console.error('Erro ao consultar usuário por ID:', err)
+        res.status(500).json({ message: 'Erro ao buscar usuário' })
+    }
+}
+const consultarNome = async (req,res) => {
+    const nome = req.params.nome
+    try{
+        const dados = await Usuarios.findOne({ 
+            where: { titulo: nome }
+        })
+        if(dados){
+            res.status(200).json(dados)
+        }else{
+            res.status(404).json({ message: 'Usuário não encontrado' })
+        }
+    }catch(err){
+        console.error('Erro ao consultar usuário por nome:', err)
+        res.status(500).json({ message: 'Erro ao buscar usuário' })
+    }
+}
 
 module.exports = { cadastrar, listar, atualizar, apagar }

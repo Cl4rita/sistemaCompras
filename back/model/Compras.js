@@ -7,31 +7,31 @@ const Compras = db.define('/compras', {
         primaryKey: true,
         autoIncrement: true
     },
-    quantity:{
+    quantidade:{
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    purchaseDate:{
+    dataCompra:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    price:{
+    precoUnit:{
         type: DataTypes.DECIMAL(10,2),
         allowNull: false
     },
-    discountPercentage:{
+    desconto:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    finalPrice:{
+    precoFinal:{
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    payment:{
+    pagamento:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    purchaseStatus:{
+    status:{
         type: DataTypes.STRING(50),
         allowNull: false
     },

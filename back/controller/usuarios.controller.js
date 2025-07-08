@@ -69,7 +69,7 @@ const consultarNome = async (req,res) => {
     const nome = req.params.nome
     try{
         const dados = await Usuarios.findOne({ 
-            where: { firstName: nome }
+            where: { primeiroNome: nome }
         })
         if(dados){
             res.status(200).json(dados)

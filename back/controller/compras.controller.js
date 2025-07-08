@@ -52,11 +52,4 @@ const apagar = async (req,res) => {
     }
 }
 
-// const consultarNome = async (req,res) => {
-    
-// }
-// const consultarId = async (req,res) => {
-
-// }
-
 module.exports = { cadastrar, listar, atualizar, apagar }
