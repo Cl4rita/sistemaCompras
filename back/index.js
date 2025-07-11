@@ -1,40 +1,38 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 require('dotenv').config()
-
-const cors = require('cors')
+const conn = require('./db/conn')
 
 const PORT = process.env.PORT
 const hostname = process.env.DB_HOST
 
-const conn = require('./db/conn')
-
-const produtosController = require('./controller/produtos.controller')
-const usuariosController = require('./controller/usuarios.controller')
-const comprasController = require('./controller/compras.controller')
+const produtoController = require('./controller/produto.controller')
+const usuarioController = require('./controller/usuario.controller')
+const compraController = require('./controller/compra.controller')
 
 //                                  Middleware
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cors())
 //-----------------------------------------------------------------------------
-app.post('/products', produtosController.cadastrar)
-app.get('/products', produtosController.listar)
-app.put('/products/:id', produtosController.atualizar)
-app.delete('/products/:id', produtosController.apagar)
-app.get('/usuario/nome/:nome', usuariosController.consultarNome)
-app.get('/usuario/:id', usuariosController.consultarId)
+app.post('/produto', produtoController.cadastrar)
+app.get('/produto', produtoController.listar)
+app.put('/produto/:id', produtoController.atualizar)
+app.delete('/produto/:id', produtoController.apagar)
 
-app.post('/users', usuariosController.cadastrar)
-app.get('/users', usuariosController.listar)
-app.put('/users/:id', usuariosController.atualizar)
-app.delete('/users/:id', usuariosController.apagar)
+app.post('/usuario', usuarioController.cadastrar)
+app.get('/usuario', usuarioController.listar)
+app.put('/usuario/:id', usuarioController.atualizar)
+app.delete('/usuario/:id', usuarioController.apagar)
+app.get('/usuario/nome/:nome', usuarioController.consultarNome)
+app.get('/usuario/:id', usuarioController.consultarId)
 
-app.post('/compras', comprasController.cadastrar)
-app.get('/compras', comprasController.listar)
-app.put('/compras/:id', comprasController.atualizar)
-app.delete('/compras/:id', comprasController.apagar)
+app.post('/compra', compraController.cadastrar)
+app.get('/compra', compraController.listar)
+app.put('/compra/:id', compraController.atualizar)
+app.delete('/compra/:id', compraController.apagar)
 
 app.get('/', (req, res)=> {
     res.status(200).json({message: 'Aplicação rodando'})

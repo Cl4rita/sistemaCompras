@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 const db =  require('../db/conn')
 
-const Compras = db.define('/compras', {
+const Compra = db.define('/compra', {
     idCompra:{
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -12,7 +12,7 @@ const Compras = db.define('/compras', {
         allowNull: false
     },
     dataCompra:{
-        type: DataTypes.STRING(50),
+        type: DataTypes.DATE,
         allowNull: false
     },
     precoUnit:{
@@ -20,11 +20,11 @@ const Compras = db.define('/compras', {
         allowNull: false
     },
     desconto:{
-        type: DataTypes.STRING(50),
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     },
     precoFinal:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     },
     pagamento:{
@@ -56,4 +56,4 @@ const Compras = db.define('/compras', {
     tableName: 'compras'
 })
 
-module.exports = Compras
+module.exports = Compra

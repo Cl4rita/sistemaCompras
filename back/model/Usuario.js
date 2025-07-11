@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 const db =  require('../db/conn')
 
-const Users = db.define('/users', {
+const Usuario = db.define('/usuario', {
     idUsuario:{
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -50,4 +50,4 @@ const Users = db.define('/users', {
     tableName: 'usuarios'
 })
 
-module.exports = Users
+module.exports = Usuario

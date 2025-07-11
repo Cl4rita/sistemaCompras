@@ -1,9 +1,9 @@
-const Produtos = require('../model/Produtos')
+const Produto = require('../model/Produto')
 
 const cadastrar = async (req,res) => {
     const valores = req.body
     try{
-        const dados = await Produtos.create(valores)
+        const dados = await Produto.create(valores)
         res.status(201).json(dados)
     }catch(err){
         console.error('Erro ao cadastrar o produto', err)
@@ -12,7 +12,7 @@ const cadastrar = async (req,res) => {
 }
 const listar = async (req,res) => {
     try{
-        const dados = await Produtos.findAll()
+        const dados = await Produto.findAll()
         res.status(200).json(dados)
     }catch(err){
         console.error('Erro ao listar o produto', err)
@@ -23,10 +23,10 @@ const atualizar = async (req,res) => {
     const valores = req.body
     const id = req.params.id
     try{
-        let dados = await Produtos.findByPk(id)
+        let dados = await Produto.findByPk(id)
         if(dados){
-            dados = await Produtos.findByPk(id)
-            await Produtos.update(valores, {where: {idProduto: id}})
+            dados = await Produto.findByPk(id)
+            await Produto.update(valores, {where: {idProduto: id}})
             res.status(200).json(dados)
         }else{
             res.status(404).json({message: 'O produto não foi encontrado'})
@@ -39,9 +39,9 @@ const atualizar = async (req,res) => {
 const apagar = async (req,res) => {
     const id = req.params.id
     try{
-        let dados = await Produtos.findByPk(id)
+        let dados = await Produto.findByPk(id)
         if(dados){
-            await Produtos.destroy({where: {idProduto: id}})
+            await Produto.destroy({where: {idProduto: id}})
             res.status(200).json({message: 'Dados excluídos incrivelmente'})
         }else{
             res.status(404).json({message: 'O produto não foi encontrado'})
@@ -49,20 +49,6 @@ const apagar = async (req,res) => {
     }catch(err){
         console.error('Erro ao apagar o produto', err)
         res.status(500).json({message: 'Erro ao apagar o produto'})
-    }
-}
-const consultarId = async (req,res) => {
-    const id = req.params.id
-    try{
-        const dados = await Usuarios.findByPk(id)
-        if(dados){
-            res.status(200).json(dados)
-        }else{
-            res.status(404).json({ message: 'Usuário não encontrado' })
-        }
-    }catch(err){
-        console.error('Erro ao consultar usuário por ID:', err)
-        res.status(500).json({ message: 'Erro ao buscar usuário' })
     }
 }
 const consultarNome = async (req,res) => {
@@ -82,4 +68,4 @@ const consultarNome = async (req,res) => {
     }
 }
 
-module.exports = { cadastrar, listar, atualizar, apagar }
+module.exports = { cadastrar, listar, atualizar, apagar, consultarNome }
