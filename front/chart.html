@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos com Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .container { display: flex; flex-direction: column; gap: 30px; }
+        .chart-container { width: 80%; max-width: 800px; margin: 0 auto; }
+        .filters { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="filters">
+            <h2>Filtrar por ID</h2>
+            <label for="startId">ID Inicial:</label>
+            <input type="number" id="startId" min="1" value="1">
+            <label for="endId">ID Final:</label>
+            <input type="number" id="endId" min="1" value="10">
+            <button onclick="updateCharts()">Aplicar Filtro</button>
+        </div>
+        <div class="chart-container">
+            <h2>Produto x Estoque</h2>
+            <canvas id="stockChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h2>Usuário x Idade</h2>
+            <canvas id="ageChart"></canvas>
+        </div>
+    </div>
+</body>
+</html>

@@ -24,7 +24,7 @@ const Produto = db.define('/produto', {
         allowNull: false
     },
     porcentagemDisconto:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     },
     estoque:{

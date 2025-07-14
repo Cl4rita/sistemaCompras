@@ -21,12 +21,12 @@ app.post('/produto', produtoController.cadastrar)
 app.get('/produto', produtoController.listar)
 app.put('/produto/:id', produtoController.atualizar)
 app.delete('/produto/:id', produtoController.apagar)
+app.get('/produto/:nome', produtoController.consultarNome)
 
 app.post('/usuario', usuarioController.cadastrar)
 app.get('/usuario', usuarioController.listar)
 app.put('/usuario/:id', usuarioController.atualizar)
 app.delete('/usuario/:id', usuarioController.apagar)
-app.get('/usuario/nome/:nome', usuarioController.consultarNome)
 app.get('/usuario/:id', usuarioController.consultarId)
 
 app.post('/compra', compraController.cadastrar)
@@ -38,6 +38,19 @@ app.get('/', (req, res)=> {
     res.status(200).json({message: 'Aplicação rodando'})
 })
 
+app.get('/api/produtos', async (req, res) => {
+    const { startId, endId } = req.query
+    const query = 'SELECT nome, estoque FROM produtos WHERE id BETWEEN ? AND ? LIMIT 10'
+    const [produtos] = await connection.query(query, [startId, endId])
+    res.json(produtos)
+})
+
+app.get('/api/usuarios', async (req, res) => {
+    const { startId, endId } = req.query
+    const query = 'SELECT nome, idade FROM usuarios WHERE id BETWEEN ? AND ? LIMIT 10'
+    const [usuarios] = await connection.query(query, [startId, endId])
+    res.json(usuarios)
+})
 //-----------------------------------------------------------------------------
 conn.sync()
 .then(()=> {
