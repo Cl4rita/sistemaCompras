@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../js/cadastrarCom.js"defer></script>
     <title>Cadastrar</title>
 </head>
 <body>
     <nav>
         <a href="../index.html">Principal</a>
-        <a href="./compras.html">Fabricante</a>
+        <a href="./compra.html">Compras</a>
     </nav>
     <h1>Cadastro do Compras</h1>
     <form>
@@ -28,11 +28,11 @@
         <input type="text" id="pagamento" placeholder="Ex.: Pix"><br><br>
         <label for="status">Digite o status:</label><br>
         <input type="text" id="status" placeholder="Ex.: A caminho"><br><br>
-        <label for="fk_id_Usuario">Digite a fk_id_Usuario de produtos:</label><br>
+        <label for="fk_id_Usuario">Digite o código do usuário:</label><br>
         <input type="text" id="fk_id_Usuario" placeholder="Ex.: 2"><br><br>
-        <label for="fk_id_Produto">Digite a fk_id_Produto de produtos:</label><br>
+        <label for="fk_id_Produto">Digite o código do produto:</label><br>
         <input type="text" id="fk_id_Produto" placeholder="Ex.: 5"><br><br>
-        <button type="submit" id="cadFab">Cadastrar</button><br><br>
+        <button type="submit" id="cadCom">Cadastrar</button><br><br>
     </form>
     <div id="res"></div>
 </body>

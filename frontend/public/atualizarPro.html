@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../js/atualizarPro.js"defer></script>
+    <title>Cadastrar</title>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Principal</a>
+        <a href="./produto.html">Produto</a>
+    </nav>
+    <h1>Cadastro de Produto</h1>
+    <form>
+        <label for="idProduto">Digite o teu código do produto:</label><br>
+        <input type="text" id="idProduto" placeholder="Ex.: 7"><br><br>
+        <label for="titulo">Digite o título do Produto:</label><br>
+        <input type="text" id="titulo" placeholder="Ex.: Lip Gloss rosa"><br><br>
+        <label for="descricao">Digite a descrição do Produto:</label><br>
+        <input type="text" id="descricao" placeholder="Ex.: É um produto cruelty-free, brilhoso..."><br><br>
+        <label for="categoria">Digite a categoria do Produto:</label><br>
+        <input type="text" id="categoria" placeholder="Ex.: beleza"><br><br>
+        <label for="preco">Digite o preço do Produto:</label><br>
+        <input type="text" id="preco" placeholder="Ex.: 15,50"><br><br>
+        <label for="porcentagemDisconto">Digite o disconto do Produto (SEM %):</label><br>
+        <input type="text" id="porcentagemDisconto" placeholder="Ex.: 5,5"><br><br>
+        <label for="estoque">Digite o estoque do Produto:</label><br>
+        <input type="text" id="estoque" placeholder="Ex.: 2"><br><br>
+        <label for="marca">Digite a marca do Produto:</label><br>
+        <input type="text" id="marca" placeholder="Ex.: 2"><br><br>
+        <label for="imagem">Link da imagem do Produto:</label><br>
+        <input type="text" id="imagem" placeholder="Ex.: 3"><br><br>
+        <button type="submit" id="updPro">Atualizar</button><br><br>
+    </form>
+    <div id="res"></div>
+</body>
+</html>

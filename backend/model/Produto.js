@@ -13,7 +13,7 @@ const Produto = db.define('/produto', {
     },
     descricao:{
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     categoria:{
         type: DataTypes.STRING(50),
@@ -25,7 +25,7 @@ const Produto = db.define('/produto', {
     },
     porcentagemDisconto:{
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
+        allowNull: true
     },
     estoque:{
         type: DataTypes.INTEGER,

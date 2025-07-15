@@ -21,11 +21,11 @@ const Compra = db.define('/compra', {
     },
     desconto:{
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
+        allowNull: true
     },
     precoFinal:{
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
+        allowNull: true
     },
     pagamento:{
         type: DataTypes.STRING(50),
