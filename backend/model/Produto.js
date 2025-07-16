@@ -23,7 +23,7 @@ const Produto = db.define('/produto', {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     },
-    porcentagemDisconto:{
+    porcentagemDesconto:{
         type: DataTypes.DECIMAL(10, 2),
         allowNull: true
     },
@@ -36,7 +36,7 @@ const Produto = db.define('/produto', {
         allowNull: false
     },
     imagem:{
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(500),
         allowNull: false
     }
 },{
