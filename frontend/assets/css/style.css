@@ -7,12 +7,10 @@
 body{
     background: linear-gradient(to right, rgb(255, 255, 255), rgb(225, 158, 245), rgb(255, 104, 174));
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
     height: 100vh;
-    font-size: 22px;
 }
-
 button, input{
     background-color: rgb(255, 255, 255);
     color: black;
@@ -22,28 +20,12 @@ button, input{
     padding-left: 6px;
     text-align: center;
 }
-
-.box{
-    width: 30%;
-    height: auto;
-    border-radius: 30px;
-    padding: 25px 20px;
-    background: rgba(255, 255, 255, 0.21);
-    box-shadow: 0 4px 30px rgba(59, 100, 21, 0.1);
-    -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px);
-    box-shadow: 0px 4px 10px rgba(158, 25, 25, 0.25);
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    border: white 5px dotted;
-    color: white;
-    padding-left: 16px;
-}
 h1, h2, span{
-   font-size: 32px; 
+   font-size: 2rem; 
    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 button:hover{
     background-color: whitesmoke;
@@ -52,7 +34,6 @@ button:hover{
     box-shadow:  0 0 20px 5px white;
 }
 button::before{
-    content: "";
     top: 0;
     left: 0;
     width: 100%;
@@ -62,21 +43,38 @@ button::before{
     transition: 0.6s;
     position: absolute;
 }
-button, input{
-    background-color: rgb(225, 158, 245);
+button{
+    background-color: white;
     color: rgb(0, 0, 0);
     font-size: 1.2rem;
-    border-radius: 12px;
+    border-radius: 20px;
+    width: 95px;
     height: 30px;
-    padding-left: 6px;
+    padding-left: 2px;
     border-radius: 25px;
 }
-b{
-    align-content: center;
+.box{
+    width: 60vw;
+    height: auto;
+    border-radius: 40px;
+    padding: 20px 0px;
+    background: rgba(255, 255, 255, 0.21);
+    box-shadow: 0 4px 50px rgba(59, 100, 21, 0.1);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 4px 10px rgba(158, 25, 25, 0.25);
+    text-align: center;
     justify-content: center;
-    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    border: rgb(255, 255, 255) 2px outset;
+    color: rgb(255, 255, 255);
+    padding-left: 16px;
 }
-a{
-    text-decoration: none;
-    color: black;
+.container{
+    width: 27vw;
+    float:left;
+}
+small{
+    font-size: 0.9rem;
 }

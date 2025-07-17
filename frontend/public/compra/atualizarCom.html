@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/atualizarCom.js"defer></script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/compra/atualizarCom.js"defer></script>
     <title>Atualizar</title>
 </head>
 <body>
+        <br>
+        <div class="box">
+        <h1>Atualizar a Compra</h1>
+        <hr>
+        <br>
     <nav>
-        <a href="../index.html">Principal</a>
-        <a href="./compra.html">Compra</a>
+        <button onclick="location.href='../../index.html'">Principal</button>
+        <button onclick="location.href='../compra.html'">Compra</button>
     </nav>
-    <h1>Atualizar a Compra</h1>
+    <br>
+    <hr>
+    <br>
     <form>
+        <div class="container">
         <label for="idCompra">Digite o código da compra:</label><br>
         <input type="text" id="idCompra" placeholder="Ex.: 3"><br><br>
         <label for="quatidade">Digite a quatidade:</label><br>
@@ -24,6 +32,7 @@
         <input type="text" id="precoUnit" placeholder="Ex.: 79,99"><br><br>
         <label for="desconto">Digite o desconto de produtos:</label><br>
         <input type="text" id="desconto" placeholder="Ex.: 20,5"><br><br>
+        </div>
         <label for="precoFinal">Digite o preço final:</label><br>
         <input type="text" id="precoFinal" placeholder="Ex.: 4"><br><br>
         <label for="pagamento">Digite a forma de pagamento:</label><br>
@@ -34,8 +43,12 @@
         <input type="text" id="fk_id_Usuario" placeholder="Ex.: 2"><br><br>
         <label for="fk_id_Produto">Digite o código do produto:</label><br>
         <input type="text" id="fk_id_Produto" placeholder="Ex.: 5"><br><br>
+        <hr>
+        <br>
         <button type="submit" id="updCom">Atualizar</button><br><br>
+        <hr>
     </form>
     <div id="res"></div>
+    </div>
 </body>
 </html>

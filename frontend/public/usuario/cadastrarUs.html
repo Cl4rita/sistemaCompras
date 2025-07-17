@@ -8,12 +8,19 @@
     <title>Cadastrar</title>
 </head>
 <body>
+        <br>
+        <div class="box">
+        <h1>Cadastro de Usuário</h1>
+        <hr>
+        <br>
     <nav>
-        <a href="../index.html">Principal</a>
-        <a href="./usuario.html">Usuário</a>
+        <button onclick="location.href='../../index.html'">Principal</button>
+        <button onclick="location.href='../usuario.html'">Usuário</button>
     </nav>
-    <h1>Cadastro de Usuário</h1>
+    <br>
+    <hr>
     <form>
+        <div class="container">
         <label for="primeiroNome">Digite o teu nome:</label><br>
         <input type="text" id="primeiroNome" placeholder="Ex.: Clara"><br><br>
         <label for="sobrenome">Digite o teu sobrenome:</label><br>
@@ -22,19 +29,25 @@
         <input type="text" id="idade" placeholder="Ex.: 26"><br><br>
         <label for="email">Digite o teu email:</label><br>
         <input type="text" id="email" placeholder="Ex.: clara@gmail.com"><br><br>
+        </div>
+        <div class="container"></div>
         <label for="telefone">Digite o teu telefone:</label><br>
         <input type="text" id="telefone" placeholder="Ex.: (47) 99999-9999"><br><br>
         <label for="endereco">Digite o teu endereço:</label><br>
-        <input type="text" id="endereco" placeholder="Ex.: Rua Brasil, número 093"><br><br>
+        <input type="text" id="endereco" placeholder="Ex.: Rua Brasil, 093"><br><br>
         <label for="cidade">Digite a tua cidade:</label><br>
         <input type="text" id="cidade" placeholder="Ex.: Florianópolis"><br><br>
         <label for="estado">Digite o teu estado:</label><br>
         <input type="text" id="estado" placeholder="Ex.: Santa Catarina"><br><br>
         <label for="dataNasci">Digite a tua data de nascimento:</label><br>
-        <input type="text" id="dataNasci" placeholder="Ex.: 01/01/01"><br><br>
+        <input type="text" id="dataNasci" placeholder="Ex.: 2001-01-20"><br><br>
+        <hr>
+        <br>
         <button type="submit" id="cadUs">Cadastrar</button><br><br>
-        <!-- <button type="submit" id="lote">Cadastrar em lote</button><br><br> -->
+        <button type="submit" id="lote">Lote/API</button><br><br>
+        <hr>
     </form>
     <div id="res"></div>
+    </div>
 </body>
 </html>

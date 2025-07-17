@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/apagarPro.js"defer></script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/produto/apagarPro.js"defer></script>
     <title>Apagar</title>
 </head>
 <body>
-    <nav>
-        <a href="../index.html">Principal</a>
-        <a href="./produto.html">Produto</a>
-    </nav>
+        <br>
+        <div class="box">
     <h1>Apagar o Produto</h1>
+        <hr>
+        <br>
+    <nav>
+        <button onclick="location.href='../../index.html'">Principal</button>
+        <button onclick="location.href='../produto.html'">Produto</button>
+    </nav>
+    <br>
+    <hr>
+    <br>
     <form>
         <label for="idProduto">Digite o código do produto:</label><br>
         <input type="text" id="idProduto" placeholder="Ex.: 7"><br><br>
+        <hr>
+        <br>
         <button type="submit" id="delPro">Apagar</button><br><br>
+        <hr>
     </form>
     <div id="res"></div>
 </body>

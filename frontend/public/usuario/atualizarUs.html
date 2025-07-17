@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/atualizarUs.js"defer></script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/usuario/atualizarUs.js"defer></script>
     <title>Atualizar</title>
 </head>
 <body>
+        <br>
+        <div class="box">
+        <h1>Atualizar o Usuário</h1>
+        <hr>
+        <br>
     <nav>
-        <a href="../index.html">Principal</a>
-        <a href="./usuario.html">Usuário</a>
+        <button onclick="location.href='../../index.html'">Principal</button>
+        <button onclick="location.href='../usuario.html'">Usuário</button>
     </nav>
-    <h1>Atualizar o Usuário</h1>
+    <br>
+    <hr>
     <form>
+        <div class="container">
         <label for="idUsuario">Digite o teu código de usuário:</label><br>
         <input type="text" id="idUsuario" placeholder="Ex.: 12"><br><br>
         <label for="primeiroNome">Digite o teu nome:</label><br>
@@ -24,18 +31,24 @@
         <input type="text" id="idade" placeholder="Ex.: 26"><br><br>
         <label for="email">Digite o teu email:</label><br>
         <input type="text" id="email" placeholder="Ex.: clara@gmail.com"><br><br>
-        <label for="telefone">Digite o teu telefone:</label><br>
-        <input type="text" id="telefone" placeholder="Ex.: (47) 99999-9999"><br><br>
-        <label for="endereco">Digite o teu endereço:</label><br>
-        <input type="text" id="endereco" placeholder="Ex.: Rua Brasil, número 093"><br><br>
-        <label for="cidade">Digite a tua cidade:</label><br>
-        <input type="text" id="cidade" placeholder="Ex.: Florianópolis"><br><br>
-        <label for="estado">Digite o teu estado:</label><br>
-        <input type="text" id="estado" placeholder="Ex.: Santa Catarina"><br><br>
-        <label for="dataNasci">Digite a tua data de nascimento:</label><br>
-        <input type="text" id="dataNasci" placeholder="Ex.: 01/01/01"><br><br>
+        </div>
+        <!-- <div class="container"> -->
+            <label for="dataNasci">Digite a tua data de nascimento:</label><br>
+            <input type="text" id="dataNasci" placeholder="Ex.: 01/01/01"><br><br>
+            <label for="endereco">Digite o teu endereço:</label><br>
+            <input type="text" id="endereco" placeholder="Ex.: Rua Brasil, número 093"><br><br>
+            <label for="cidade">Digite a tua cidade:</label><br>
+            <input type="text" id="cidade" placeholder="Ex.: Florianópolis"><br><br>
+            <label for="estado">Digite o teu estado:</label><br>
+            <input type="text" id="estado" placeholder="Ex.: Santa Catarina"><br><br>
+            <label for="telefone">Digite o teu telefone:</label><br>
+            <input type="text" id="telefone" placeholder="Ex.: (47) 99999-9999"><br><br>
+            <hr>
+            <br>
         <button type="submit" id="updUs">Atualizar</button><br><br>
+        <hr>
     </form>
     <div id="res"></div>
+        </div>
 </body>
 </html>
