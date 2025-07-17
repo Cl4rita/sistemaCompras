@@ -1,14 +1,14 @@
 let res = document.getElementById('res')
 
-let delFab = document.getElementById('delFab')
+let delUs = document.getElementById('delUs')
 
-delFab.addEventListener('click', (e)=>{
+delUs.addEventListener('click', (e)=>{
     e.preventDefault()
     const id = Number(document.getElementById('id').value)
 
     res.innerHTML = ''
 
-    fetch(`http://localhost:3000/fabricante/${id}`,{
+    fetch(`http://localhost:3000/usuario/${id}`,{
         method: 'DELETE',
         headers: {
             'Content-Type':'application/json'
@@ -18,10 +18,10 @@ delFab.addEventListener('click', (e)=>{
         if(resp.status === 204){
             res.innerHTML += `Os dados foram excluídos com sucesso!`
         }else{
-            res.innerHTML += `Fabricante não encontrado!`
+            res.innerHTML += `Usuário não encontrado!`
         }
     })
     .catch((err)=>{
-        console.error('Erro ao apagar o fabricante!',err)
+        console.error('Erro ao apagar o usuário!',err)
     })
 })

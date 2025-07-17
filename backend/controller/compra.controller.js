@@ -27,7 +27,7 @@ const atualizar = async (req,res) => {
         if(dados){
             dados = await Compra.findByPk(id)
             await Compra.update(valores, {where: {idCompra: id}})
-            res.status(200).json(dados)
+            res.status(204).json(dados)
         }else{
             res.status(404).json({message: 'a compra não foi encontrado'})
         }

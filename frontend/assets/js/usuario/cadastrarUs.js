@@ -1,7 +1,7 @@
 let res = document.getElementById('res')
+let resLote = document.getElementById('resLote')
 
 let cadUs = document.getElementById('cadUs')
-
 let lote = document.getElementById('lote')
 
 cadUs.addEventListener('click', (e)=>{
@@ -37,8 +37,9 @@ cadUs.addEventListener('click', (e)=>{
         },
         body: JSON.stringify(valor)
     })
-    .then(resp => resp.body)
+    .then(resp => resp.json())
     .then(dados => {
+        
         res.innerHTML += `O nome é: ${dados.primeiroNome} <br>`
         res.innerHTML += `O sobrenome é: ${dados.sobrenome} <br>`
         res.innerHTML += `A idade é: ${dados.idade} <br>`
@@ -54,8 +55,7 @@ cadUs.addEventListener('click', (e)=>{
     })
 })
 
-
-lote.addEventListener("click", (e)=>{
+lote.addEventListener('click', (e)=>{
     e.preventDefault()
 
     fetch(`https://dummyjson.com/users`,{
@@ -80,6 +80,7 @@ lote.addEventListener("click", (e)=>{
                 dataNasci: dad.birthDate
             }
             console.log(valores)
+            resLote.innerHTML = ''
 
             fetch(`http://localhost:3000/usuario`,{
                 method: 'POST',
@@ -89,13 +90,15 @@ lote.addEventListener("click", (e)=>{
                 body: JSON.stringify(valores)
             })
             .then(resp => resp.body)
-            .then()
+            .then(()=> {
+                resLote.innerHTML += `Lote registrado com sucesso!`
+            })
             .catch((err)=>{
-                console.error('Erro ao cadastrar o o usuário!',err)
+                console.error('Erro ao cadastrar o usuário!',err)
             })
         })
     })
     .catch((err)=>{
-        console.error('Erro ao cadastrar o o usuário!',err)
+        console.error('Erro ao cadastrar o usuário!',err)
     })
 })

@@ -42,7 +42,7 @@ const apagar = async (req,res) => {
         let dados = await Produto.findByPk(id)
         if(dados){
             await Produto.destroy({where: {idProduto: id}})
-            res.status(200).json({message: 'Dados excluídos incrivelmente'})
+            res.status(204).json({message: 'Dados excluídos incrivelmente'})
         }else{
             res.status(404).json({message: 'O produto não foi encontrado'})
         }

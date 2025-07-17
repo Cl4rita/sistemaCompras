@@ -6,19 +6,23 @@ lisPro.addEventListener('click', ()=>{
 
     res.innerHTML = ''
 
-    fetch(`https://dummyjson.com/products`)
+    fetch(`http:localhost:3000/produto`)
     .then(resp => resp.json())
     .then(dados =>{
         
         dados.forEach(dad => {
-            console.log(`O Código do produto é: ${dad.idProduto} <br>`)
-            console.log(`O nome do produto é: ${dados.titulo} <br>`)
-            console.log(`A quantidade é: ${dados.description} <br>`)
-            console.log(`O preco é: ${dados.preco} <br>`)
-            console.log(`O total é: ${dados.category} <br>`)
-            console.log(`O código da entrega é: ${dados.brand} <br>`)
-            console.log(`O código do fabricante é: ${dados.discount} <br>`)
-            console.log(`<hr>`)
+
+            res.innerHTML += `<hr>`
+            res.innerHTML += `O código do produto é: ${dados.idProduto} <br>`
+            res.innerHTML += `O nome do produto é: ${dados.titulo} <br>`
+            res.innerHTML += `A descriçao foi cadastrada <br>`
+            res.innerHTML += `A categoria é: ${dados.categoria} <br>`
+            res.innerHTML += `O preço é: ${dados.preco} <br>`
+            res.innerHTML += `O desconto é: ${dados.porcentagemDesconto} <br>`
+            res.innerHTML += `O estoque é: ${dados.estoque} <br>`
+            res.innerHTML += `A marca é: ${dados.marca} <br>`
+            res.innerHTML += `A imagem foi cadastrada <br>`
+            res.innerHTML += `<hr>`
         })
     })
     .catch((err)=>{
