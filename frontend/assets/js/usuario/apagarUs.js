@@ -4,6 +4,7 @@ let delUs = document.getElementById('delUs')
 
 delUs.addEventListener('click', (e)=>{
     e.preventDefault()
+    
     const id = Number(document.getElementById('id').value)
 
     res.innerHTML = ''

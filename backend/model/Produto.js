@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize')
 const db =  require('../db/conn')
 
 const Produto = db.define('/produto', {
-    id:{
+    idProduto:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true

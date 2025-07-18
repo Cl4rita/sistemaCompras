@@ -1,14 +1,15 @@
 let res = document.getElementById('res')
 
-let delEnt = document.getElementById('delEnt')
+let delCom = document.getElementById('delCom')
 
-delEnt.addEventListener('click', (e)=>{
+delCom.addEventListener('click', (e)=>{
     e.preventDefault()
+
     const id = Number(document.getElementById('id').value)
 
     res.innerHTML = ''
 
-    fetch(`http://localhost:3000/entrega/${id}`,{
+    fetch(`http://localhost:3000/compra/${id}`,{
         method: 'DELETE',
         headers: {
             'Content-Type':'application/json'
@@ -18,10 +19,10 @@ delEnt.addEventListener('click', (e)=>{
         if(resp.status === 204){
             res.innerHTML += `Os dados foram excluídos com sucesso!`
         }else{
-            res.innerHTML += `Entrega não encontrado!`
+            res.innerHTML += `Compra não encontrado!`
         }
     })
     .catch((err)=>{
-        console.error('Erro ao apagar a entrega!',err)
+        console.error('Erro ao apagar a compra!',err)
     })
 })

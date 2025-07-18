@@ -1,22 +1,32 @@
 let res = document.getElementById('res')
 
-let lisEnt = document.getElementById('lisEnt')
+let lisCom = document.getElementById('lisCom')
 
-lisEnt.addEventListener('click', ()=>{
+lisCom.addEventListener('click', ()=>{
 
     res.innerHTML = ''
 
-    fetch(`http://localhost:3000/entrega`)
+    fetch(`http://localhost:3000/compra`)
     .then(resp => resp.json())
     .then(dados =>{
         dados.forEach(dad => {
-            res.innerHTML += `O Código é: ${dad.codEntrega} <br>`
-            res.innerHTML += `O local é: ${dad.local} <br>`
-            res.innerHTML += `O responsável é: ${dad.responsavel} <br>`
-            res.innerHTML += `<hr>`
+
+        
+        res.innerHTML += `<hr>`
+        res.innerHTML += `A código da compra é: ${dad.idCompra} <br>`
+        res.innerHTML += `A quantidade é: ${dad.quantidade} <br>`
+        res.innerHTML += `A data da compra é: ${dad.dataCompra} <br>`
+        res.innerHTML += `O preço unitário é: ${dad.precoUnit} <br>`
+        res.innerHTML += `O desconto é: ${dad.desconto} <br>`
+        res.innerHTML += `O preço final é: ${dad.precoFinal} <br>`
+        res.innerHTML += `A forma pagamento é: ${dad.pagamento} <br>`
+        res.innerHTML += `O status é: ${dad.status} <br>`
+        res.innerHTML += `O código do usuário é: ${dad.fk_idUsuario} <br>`
+        res.innerHTML += `O código do produto é: ${dad.fk_idProduto} <br>`
+        res.innerHTML += `<hr>`
         })
     })
     .catch((err)=>{
-        console.error('Erro ao listar o entrega!',err)
+        console.error('Erro ao listar a compra!',err)
     })
 })

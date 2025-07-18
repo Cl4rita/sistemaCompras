@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize')
 const db =  require('../db/conn')
 
 const Compra = db.define('/compra', {
-    id:{
+    idCompra:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -40,7 +40,7 @@ const Compra = db.define('/compra', {
         allowNull: false,
         references: {
             model: 'usuarios',
-            key: 'id'
+            key: 'idUsuario'
         }
     },
     fk_idProduto:{
@@ -48,7 +48,7 @@ const Compra = db.define('/compra', {
         allowNull: false,
         references: {
             model: 'produtos',
-            key: 'id'
+            key: 'idProduto'
         }
     },
 },{

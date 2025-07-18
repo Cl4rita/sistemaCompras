@@ -4,7 +4,9 @@ let updUs = document.getElementById('updUs')
 
 updUs.addEventListener('click', (e)=>{
     e.preventDefault()
+
     const id = Number(document.getElementById('id').value)
+    
     const primeiroNome = document.getElementById('primeiroNome').value
     const sobrenome = document.getElementById('sobrenome').value
     const idade = Number(document.getElementById('idade').value)
@@ -39,7 +41,7 @@ updUs.addEventListener('click', (e)=>{
     .then(resp => resp.json())
     .then(dados =>{
 
-        res.innerHTML += `O código do usuário atualizado é: ${dados.idUsuario} <br>`
+        res.innerHTML += `O código do usuário é: ${dados.idUsuario} <br>`
         res.innerHTML += `O nome atualizado é: ${dados.primeiroNome} <br>`
         res.innerHTML += `O sobrenome atualizado é: ${dados.sobrenome} <br>`
         res.innerHTML += `A idade atualizada é: ${dados.idade} <br>`

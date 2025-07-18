@@ -1,20 +1,36 @@
 let res = document.getElementById('res')
 
-let updEnt = document.getElementById('updEnt')
+let updCom = document.getElementById('updCom')
 
-updEnt.addEventListener('click', (e)=>{
+updCom.addEventListener('click', (e)=>{
     e.preventDefault()
+
     const id = Number(document.getElementById('id').value)
-    const local = document.getElementById('local').value
-    const responsavel = document.getElementById('responsavel').value
+
+    const quantidade = Number(document.getElementById('quantidade').value)
+    const dataCompra = document.getElementById('dataCompra').value
+    const precoUnit = Number(document.getElementById('precoUnit').value)
+    const desconto = Number(document.getElementById('desconto').value)
+    const precoFinal = Number(document.getElementById('precoFinal').value)
+    const pagamento = document.getElementById('pagamento').value
+    const status = document.getElementById('status').value
+    const fk_idUsuario = document.getElementById('fk_idUsuario').value
+    const fk_idProduto = document.getElementById('fk_idProduto').value
 
     const valores = {
-        local: local,
-        responsavel: responsavel
+        quantidade: quantidade,
+        dataCompra: dataCompra,
+        precoUnit: precoUnit,
+        desconto: desconto,
+        precoFinal: precoFinal,
+        pagamento: pagamento,
+        status: status,
+        fk_idUsuario: fk_idUsuario,
+        fk_idProduto: fk_idProduto
     }
     res.innerHTML = ''
 
-    fetch(`http://localhost:3000/entrega/${id}`,{
+    fetch(`http://localhost:3000/compra/${id}`,{
         method: 'PUT',
         headers: {
             'Content-Type':'application/json'
@@ -23,10 +39,19 @@ updEnt.addEventListener('click', (e)=>{
     })
     .then(resp => resp.json())
     .then(dados =>{
-        res.innerHTML += `O local é: ${dados.local} <br>`
-        res.innerHTML += `O responsavel é: ${dados.responsavel} <br>`
+
+        res.innerHTML += `A código da compra atualizado é: ${dados.idCompra} <br>`
+        res.innerHTML += `A quantidade atualizada é: ${dados.quantidade} <br>`
+        res.innerHTML += `A data da compra atualizada é: ${dados.dataCompra} <br>`
+        res.innerHTML += `O preço unitário atualizado é: ${dados.precoUnit} <br>`
+        res.innerHTML += `O desconto atualizado é: ${dados.desconto} <br>`
+        res.innerHTML += `O preço final atualizado é: ${dados.precoFinal} <br>`
+        res.innerHTML += `A forma pagamento atualizada é: ${dados.pagamento} <br>`
+        res.innerHTML += `O status atualizado é: ${dados.status} <br>`
+        res.innerHTML += `O código do usuário atualizado é: ${dados.fk_idUsuario} <br>`
+        res.innerHTML += `O código do produto atualizado é: ${dados.fk_idProduto} <br>`
     })
     .catch((err)=>{
-        console.error('Erro ao atualizar a entrega!',err)
+        console.error('Erro ao atualizar a compra!',err)
     })
 })

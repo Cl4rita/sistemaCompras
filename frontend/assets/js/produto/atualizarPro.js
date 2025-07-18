@@ -4,22 +4,27 @@ let updPro = document.getElementById('updPro')
 
 updPro.addEventListener('click', (e)=>{
     e.preventDefault()
+
     const id = Number(document.getElementById('id').value)
-    const nome = document.getElementById('nome').value
-    const quantidade = Number(document.getElementById('quantidade').value)
+
+    const titulo = document.getElementById('titulo').value
+    const descricao = document.getElementById('descricao').value
+    const categoria = document.getElementById('categoria').value
     const preco = Number(document.getElementById('preco').value)
-    const entrega_id = Number(document.getElementById('entrega_id').value)
-    const fabricante_id = Number(document.getElementById('fabricante_id').value)
-    
-    const total = (Number(preco * quantidade)).toFixed(2)
+    const porcentagemDesconto = Number(document.getElementById('porcentagemDesconto').value)
+    const estoque = Number(document.getElementById('estoque').value)
+    const marca = document.getElementById('marca').value
+    const imagem = document.getElementById('imagem').value
 
     const valores = {
-        nome: nome,
-        quantidade: quantidade,
+        titulo: titulo,
+        descricao: descricao,
+        categoria: categoria,
         preco: preco,
-        total: total,
-        entrega_id: entrega_id,
-        fabricante_id: fabricante_id
+        porcentagemDesconto: porcentagemDesconto,
+        estoque: estoque,
+        marca: marca,
+        imagem: imagem
     }
     res.innerHTML = ''
 
@@ -32,13 +37,16 @@ updPro.addEventListener('click', (e)=>{
     })
     .then(resp => resp.json())
     .then(dados =>{
-        console.log(dados)
-        res.innerHTML += `O nome do produto é: ${dados.nome} <br>`
-        res.innerHTML += `A quantidade é: ${dados.quantidade} <br>`
-        res.innerHTML += `O preco é: ${dados.preco} <br>`
-        res.innerHTML += `O total é: ${dados.total} <br>`
-        res.innerHTML += `O código da entrega é: ${dados.entrega_id} <br>`
-        res.innerHTML += `O código do fabricante é: ${dados.fabricante_id} <br>`
+        
+        res.innerHTML += `O código do produto é: ${dad.id} <br>`
+        res.innerHTML += `O nome do produto atualizado é: ${dados.titulo} <br>`
+        res.innerHTML += `A descriçao foi atualizada <br>`
+        res.innerHTML += `A categoria atualizada é: ${dados.categoria} <br>`
+        res.innerHTML += `O preço atualizado é: ${dados.preco} <br>`
+        res.innerHTML += `O desconto atualizado é: ${dados.porcentagemDesconto} <br>`
+        res.innerHTML += `O estoque atualizado é: ${dados.estoque} <br>`
+        res.innerHTML += `A marca atualizada é: ${dados.marca} <br>`
+        res.innerHTML += `A imagem foi atualizada <br>`
     })
     .catch((err)=>{
         console.error('Erro ao atualizar o produto!',err)

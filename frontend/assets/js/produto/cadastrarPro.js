@@ -2,7 +2,7 @@ let res = document.getElementById('res')
 let resLote = document.getElementById('resLote')
 
 let cadPro = document.getElementById('cadPro')
-let lote = document.getElementById('lote')
+let lotePro = document.getElementById('lotePro')
 
 cadPro.addEventListener('click', (e)=>{
     e.preventDefault()
@@ -39,7 +39,7 @@ cadPro.addEventListener('click', (e)=>{
     .then(dados =>{
 
         res.innerHTML += `O nome do produto é: ${dados.titulo} <br>`
-        res.innerHTML += `A descriçao foi cadastrada <br>`
+        res.innerHTML += `A descrição foi cadastrada <br>`
         res.innerHTML += `A categoria é: ${dados.categoria} <br>`
         res.innerHTML += `O preço é: ${dados.preco} <br>`
         res.innerHTML += `O desconto é: ${dados.porcentagemDesconto} <br>`
@@ -51,7 +51,7 @@ cadPro.addEventListener('click', (e)=>{
         console.error('Erro ao cadastrar o produto!',err)
     })
 })
-lote.addEventListener('click', (e)=>{
+lotePro.addEventListener('click', (e)=>{
     e.preventDefault()
 
     fetch(`https://dummyjson.com/products`,{
@@ -75,7 +75,7 @@ lote.addEventListener('click', (e)=>{
                 imagem: dad.thumbnail
             }
             console.log(valores)
-            resLote.innerHTML = ''
+            // resLote.innerHTML = ''
 
             fetch(`http://localhost:3000/produto`,{
                 method: 'POST',
@@ -86,7 +86,7 @@ lote.addEventListener('click', (e)=>{
             })
             .then(resp => resp.body)
             .then(()=> {
-                resLote.innerHTML += `Lote registrado com sucesso!`
+                resLote.innerHTML = `Lote registrado com sucesso!`
             })
             .catch((err)=>{
                 console.error('Erro ao cadastrar o produto!',err)

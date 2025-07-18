@@ -37,20 +37,6 @@ app.delete('/compra/:id', compraController.apagar)
 app.get('/', (req, res)=> {
     res.status(200).json({message: 'Aplicação rodando'})
 })
-
-app.get('/api/produtos', async (req, res) => {
-    const { startId, endId } = req.query
-    const query = 'SELECT nome, estoque FROM produtos WHERE id BETWEEN ? AND ? LIMIT 10'
-    const [produtos] = await connection.query(query, [startId, endId])
-    res.json(produtos)
-})
-
-app.get('/api/usuarios', async (req, res) => {
-    const { startId, endId } = req.query
-    const query = 'SELECT nome, idade FROM usuarios WHERE id BETWEEN ? AND ? LIMIT 10'
-    const [usuarios] = await connection.query(query, [startId, endId])
-    res.json(usuarios)
-})
 //-----------------------------------------------------------------------------
 conn.sync()
 .then(()=> {

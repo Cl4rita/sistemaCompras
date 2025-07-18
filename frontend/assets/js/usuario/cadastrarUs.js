@@ -2,7 +2,7 @@ let res = document.getElementById('res')
 let resLote = document.getElementById('resLote')
 
 let cadUs = document.getElementById('cadUs')
-let lote = document.getElementById('lote')
+let loteUs = document.getElementById('loteUs')
 
 cadUs.addEventListener('click', (e)=>{
     e.preventDefault()
@@ -51,11 +51,11 @@ cadUs.addEventListener('click', (e)=>{
         res.innerHTML += `A data de nascimento é: ${dados.dataNasci} <br>`
     })
     .catch((err)=>{
-        console.error('Erro ao cadastrar o o usuário!',err)
+        console.error('Erro ao cadastrar o usuário!',err)
     })
 })
 
-lote.addEventListener('click', (e)=>{
+loteUs.addEventListener('click', (e)=>{
     e.preventDefault()
 
     fetch(`https://dummyjson.com/users`,{
@@ -80,7 +80,7 @@ lote.addEventListener('click', (e)=>{
                 dataNasci: dad.birthDate
             }
             console.log(valores)
-            resLote.innerHTML = ''
+            // resLote.innerHTML = ''
 
             fetch(`http://localhost:3000/usuario`,{
                 method: 'POST',
@@ -91,7 +91,7 @@ lote.addEventListener('click', (e)=>{
             })
             .then(resp => resp.body)
             .then(()=> {
-                resLote.innerHTML += `Lote registrado com sucesso!`
+                resLote.innerHTML = `Lote registrado com sucesso!`
             })
             .catch((err)=>{
                 console.error('Erro ao cadastrar o usuário!',err)

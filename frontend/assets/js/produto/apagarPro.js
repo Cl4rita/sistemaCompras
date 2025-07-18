@@ -18,7 +18,7 @@ delPro.addEventListener('click', (e)=>{
         if(resp.status === 204){
             res.innerHTML += `Os dados foram excluídos com sucesso!`
         }else{
-            res.innerHTML += `Fabricante não encontrado!`
+            res.innerHTML += `Produto não encontrado!`
         }
     })
     .catch((err)=>{
