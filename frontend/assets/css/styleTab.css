@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffdffb;
+    background-color: rgb(250, 226, 234);
+    text-align: center;
 }
 
 .container {
@@ -22,7 +23,7 @@ h1 {
 }
 
 table {
-    width: 100%;
+    width: 100% ;
     border-collapse: collapse;
     margin: 20px 0;
     background-color: #fff;
@@ -35,6 +36,9 @@ th, td {
 }
 
 th {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
     background-color: #f2f2f2;
 }
 
@@ -47,4 +51,48 @@ tr:hover {
     margin: 20px 0;
     font-size: 1.5em;
     color: #555;
+}
+.box{
+    width: 50vw;
+    height: auto;
+    border-radius: 40px;
+    padding: 20px 0px;
+    background: rgba(99, 98, 98, 0.21);
+    box-shadow: 0 4px 50px rgba(59, 100, 21, 0.1);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border: rgb(255, 255, 255) 2px outset;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+button:hover{
+    background-color: whitesmoke;
+    transition: 1s;
+    background: transparent;
+    box-shadow:  0 0 20px 5px white;
+}
+button::before{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -o-linear-gradient(120deg, transparent, #00fffc, transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+    position: absolute;
+}
+button{
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    border-radius: 20px;
+    width: 120px;
+    height: 30px;
+    padding-left: 2px;
+    border-radius: 25px;
 }

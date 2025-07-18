@@ -1,26 +1,25 @@
-export const generateUserReport = (users) => {
-    const reportTable = document.createElement('table');
-    reportTable.innerHTML = `
-        <thead>
-            <tr>
-                <th>Full Name</th>
-                <th>Age</th>
-                <th>Email</th>
-                <th>City</th>
-                <th>State</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${users.map(user => `
-                <tr>
-                    <td>${user.fullName}</td>
-                    <td>${user.age}</td>
-                    <td>${user.email}</td>
-                    <td>${user.city}</td>
-                    <td>${user.state}</td>
-                </tr>
-            `).join('')}
-        </tbody>
-    `;
-    document.body.appendChild(reportTable);
-};
+async function listarUsuarios() {
+    const response = await fetch('http://localhost:3000/usuario');
+    return response.json();
+  }
+  
+  document.addEventListener('DOMContentLoaded', async () => {
+    const tabela = document.querySelector('#tabelaUsuarios');
+    const usuarios = await listarUsuarios();
+    tabela.innerHTML = '';
+    usuarios.forEach(usuario => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${usuario.idUsuario || usuario.id}</td>
+        <td>${usuario.primeiroNome}</td>
+        <td>${usuario.sobrenome}</td>
+        <td>${usuario.idade}</td>
+        <td>${usuario.email}</td>
+        <td>${usuario.telefone}</td>
+        <td>${usuario.endereco}</td>
+        <td>${usuario.cidade}</td>
+        <td>${usuario.estado}</td>
+        <td>${usuario.dataNasci}</td>`;
+      tabela.appendChild(tr);
+    });
+  });

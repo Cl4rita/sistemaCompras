@@ -23,7 +23,7 @@ cadPro.addEventListener('click', (e)=>{
         preco: preco,
         porcentagemDesconto: porcentagemDesconto,
         estoque: estoque,
-        marca: marca,
+        marca: marca ? marca: "Sem marca registrada",
         imagem: imagem,
     }
     res.innerHTML = ''
@@ -39,13 +39,13 @@ cadPro.addEventListener('click', (e)=>{
     .then(dados =>{
 
         res.innerHTML += `O nome do produto é: ${dados.titulo} <br>`
-        res.innerHTML += `A descrição foi cadastrada <br>`
+        res.innerHTML += `A descrição é: ${dados.descricao} <br>`
         res.innerHTML += `A categoria é: ${dados.categoria} <br>`
         res.innerHTML += `O preço é: ${dados.preco} <br>`
-        res.innerHTML += `O desconto é: ${dados.porcentagemDesconto} <br>`
+        res.innerHTML += `O desconto é: ${dados.porcentagemDesconto} % <br>`
         res.innerHTML += `O estoque é: ${dados.estoque} <br>`
         res.innerHTML += `A marca é: ${dados.marca} <br>`
-        res.innerHTML += `A imagem foi cadastrada <br>`
+        res.innerHTML += `A imagem é <br> <img src="${dados.imagem}"> <br>`
     })
     .catch((err)=>{
         console.error('Erro ao cadastrar o produto!',err)

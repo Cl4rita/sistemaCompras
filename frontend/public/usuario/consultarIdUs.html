@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/style2.css">
-    <script src="../../assets/js/usuario/consultarIdUs.js"defer></script>
-    <title>Consultar Id</title>
+    <script src="../../assets/js/usuario/consultarIdUs.js" defer></script>
+    <title>Procurar</title>
 </head>
 <body>
-        <br>
-        <div class="box">
-        <h1>Consultar o Usuário por Id</h1>
-        <hr>
-        <br>
-    <nav>
-        <button onclick="location.href='../../index.html'">Principal</button>
-        <button onclick="location.href='../usuario.html'">Usuário</button>
-    </nav>
     <br>
+    <div class="box">
+        <h1>Procurar Usuário por Id</h1>
     <hr>
     <br>
+<nav>
+    <button onclick="location.href='../../index.html'">Principal</button>
+    <button onclick="location.href='../usuario.html'">Usuário</button>
+</nav>
+<br>
+<hr>
+<br>
     <form>
-        <label for="id">Digite o teu código de usuário:</label><br>
-        <input type="text" id="id" placeholder="Ex.: 12"><br><br>
-        <hr>
-        <br>
-        <button type="submit" id="conUs">Consultar</button><br><br>
+        <label for="id">Digite o código do Usuário:</label>
+        <input type="text" id="id" placeholder="Ex.: 1">
+
+        <button id="procuraId">Procurar</button>
+
     </form>
     <div class="resbox">
-    <div id="res"></div>
-        </div>
-        </div>
+        <div id="res"></div>
+    </div>
+</div>
 </body>
 </html>

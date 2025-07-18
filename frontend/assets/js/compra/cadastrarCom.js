@@ -9,11 +9,12 @@ cadCom.addEventListener('click', (e)=>{
     const dataCompra = document.getElementById('dataCompra').value
     const precoUnit = Number(document.getElementById('precoUnit').value)
     const desconto = Number(document.getElementById('desconto').value)
-    const precoFinal = Number(document.getElementById('precoFinal').value)
     const pagamento = document.getElementById('pagamento').value
     const status = document.getElementById('status').value
-    const fk_idUsuario = document.getElementById('fk_idUsuario').value
-    const fk_idProduto = document.getElementById('fk_idProduto').value
+    const fk_idUsuario = Number(document.getElementById('fk_idUsuario').value)
+    const fk_idProduto = Number(document.getElementById('fk_idProduto').value)
+
+    const precoFinal = (Number((precoUnit * quantidade) - (desconto/100))).toFixed(2)
 
     const valores = {
         quantidade: quantidade,
@@ -41,7 +42,7 @@ cadCom.addEventListener('click', (e)=>{
         res.innerHTML += `A quantidade é: ${dados.quantidade} <br>`
         res.innerHTML += `A data da compra é: ${dados.dataCompra} <br>`
         res.innerHTML += `O preço unitário é: ${dados.precoUnit} <br>`
-        res.innerHTML += `O desconto é: ${dados.desconto} <br>`
+        res.innerHTML += `O desconto é: ${dados.desconto} % <br>`
         res.innerHTML += `O preço final é: ${dados.precoFinal} <br>`
         res.innerHTML += `A forma pagamento é: ${dados.pagamento} <br>`
         res.innerHTML += `O status é: ${dados.status} <br>`

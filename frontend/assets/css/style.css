@@ -48,7 +48,7 @@ button{
     color: rgb(0, 0, 0);
     font-size: 1.2rem;
     border-radius: 20px;
-    width: 95px;
+    width: 120px;
     height: 30px;
     padding-left: 2px;
     border-radius: 25px;
@@ -76,4 +76,10 @@ button{
 }
 small{
     font-size: 0.9rem;
+}
+img{
+    width: 20vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }

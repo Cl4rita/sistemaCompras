@@ -25,8 +25,8 @@ const atualizar = async (req,res) => {
     try{
         let dados = await Usuario.findByPk(id)
         if(dados){
-            dados = await Usuario.findByPk(id)
             await Usuario.update(valores, {where: {idUsuario: id}})
+            dados = await Usuario.findByPk(id)
             res.status(200).json(dados)
         }else{
             res.status(404).json({message: 'O usuário não foi encontrado'})

@@ -5,16 +5,16 @@ let updPro = document.getElementById('updPro')
 updPro.addEventListener('click', (e)=>{
     e.preventDefault()
 
-    const id = Number(document.getElementById('id').value)
+    let id = Number(document.getElementById('id').value)
 
-    const titulo = document.getElementById('titulo').value
-    const descricao = document.getElementById('descricao').value
-    const categoria = document.getElementById('categoria').value
-    const preco = Number(document.getElementById('preco').value)
-    const porcentagemDesconto = Number(document.getElementById('porcentagemDesconto').value)
-    const estoque = Number(document.getElementById('estoque').value)
-    const marca = document.getElementById('marca').value
-    const imagem = document.getElementById('imagem').value
+    let titulo = document.getElementById('titulo').value
+    let descricao = document.getElementById('descricao').value
+    let categoria = document.getElementById('categoria').value
+    let preco = Number(document.getElementById('preco').value)
+    let porcentagemDesconto = Number(document.getElementById('porcentagemDesconto').value)
+    let estoque = Number(document.getElementById('estoque').value)
+    let marca = document.getElementById('marca').value
+    let imagem = document.getElementById('imagem').value
 
     const valores = {
         titulo: titulo,
@@ -23,7 +23,7 @@ updPro.addEventListener('click', (e)=>{
         preco: preco,
         porcentagemDesconto: porcentagemDesconto,
         estoque: estoque,
-        marca: marca,
+        marca: marca ? marca: "Sem marca registrada",
         imagem: imagem
     }
     res.innerHTML = ''
@@ -38,15 +38,16 @@ updPro.addEventListener('click', (e)=>{
     .then(resp => resp.json())
     .then(dados =>{
         
-        res.innerHTML += `O código do produto é: ${dad.id} <br>`
+        console.log(dados)
+        res.innerHTML += `O código do produto é: ${dados.idProduto} <br>`
         res.innerHTML += `O nome do produto atualizado é: ${dados.titulo} <br>`
-        res.innerHTML += `A descriçao foi atualizada <br>`
+        res.innerHTML += `A descrição atualizada é: ${dados.descricao} <br>`
         res.innerHTML += `A categoria atualizada é: ${dados.categoria} <br>`
         res.innerHTML += `O preço atualizado é: ${dados.preco} <br>`
-        res.innerHTML += `O desconto atualizado é: ${dados.porcentagemDesconto} <br>`
+        res.innerHTML += `O desconto atualizado é: ${dados.porcentagemDesconto} % <br>`
         res.innerHTML += `O estoque atualizado é: ${dados.estoque} <br>`
         res.innerHTML += `A marca atualizada é: ${dados.marca} <br>`
-        res.innerHTML += `A imagem foi atualizada <br>`
+        res.innerHTML += `A imagem é <br> <img src="${dados.imagem}"> <br>`
     })
     .catch((err)=>{
         console.error('Erro ao atualizar o produto!',err)

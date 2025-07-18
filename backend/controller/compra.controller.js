@@ -25,9 +25,9 @@ const atualizar = async (req,res) => {
     try{
         let dados = await Compra.findByPk(id)
         if(dados){
-            dados = await Compra.findByPk(id)
             await Compra.update(valores, {where: {idCompra: id}})
-            res.status(204).json(dados)
+            dados = await Compra.findByPk(id)
+            res.status(200).json(dados)
         }else{
             res.status(404).json({message: 'a compra não foi encontrado'})
         }
@@ -42,7 +42,7 @@ const apagar = async (req,res) => {
         let dados = await Compra.findByPk(id)
         if(dados){
             await Compra.destroy({where: {idCompra: id}})
-            res.status(200).json({message: 'Dados excluídos incrivelmente'})
+            res.status(204).json({message: 'Dados excluídos incrivelmente'})
         }else{
             res.status(404).json({message: 'a compra não foi encontrado'})
         }

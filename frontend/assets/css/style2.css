@@ -48,13 +48,13 @@ button{
     color: rgb(0, 0, 0);
     font-size: 1.2rem;
     border-radius: 20px;
-    width: 95px;
+    width: 120px;
     height: 30px;
     padding-left: 2px;
     border-radius: 25px;
 }
 .box{
-    width: 60vw;
+    width: 50vw;
     height: auto;
     border-radius: 40px;
     padding: 20px 0px;
@@ -84,6 +84,7 @@ small{
     text-align: justify;
     margin-top: 18px;
     padding-left: 20px;
+    padding-right: 10px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 6px;
     color: #333;

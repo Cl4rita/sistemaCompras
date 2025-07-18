@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="graficos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style2.css" />
+  <title>Gerenciar Gráficos</title>
+</head>
+<body>
+  <br>
+  <div class="box">
+  <h1>Usuário</h1>
+  <hr>
+  <br>
+<nav>
+  <button onclick="location.href='../index.html'">Principal</button>
+  <br><br>
+  <hr>
+</nav>
+  <main>
+    <section>
+      <input type="number" id="startId">
+      <input type="number" id="endId">
+      <br><br>
+      <button id="gerarGraficos">Gerar</button>
+    </section>
+    <section>
+      <br>
+        <h1>Produto X Estoque</h1>
+        <canvas id="productChart"></canvas>
+        <br>
+    </section>
+    <section>
+      <br>
+        <h1>Usuario x Idade</h1>
+        <canvas id="userChart"></canvas>
+    </section>
+  </main>
+</body>
+</html>

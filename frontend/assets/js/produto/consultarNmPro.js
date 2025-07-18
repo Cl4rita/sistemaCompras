@@ -1,32 +1,29 @@
-let res = document.getElementById('res')
+let res = document.getElementById("res")
+let procuraNome = document.getElementById("procuraNome")
 
-// let conUs = document.getElementById('conUs')
+procuraNome.addEventListener("click", (e) => {
+    e.preventDefault()
 
-// conUs.addEventListener('click', ()=>{
+    let nome = document.getElementById("nome").value
 
-//     const id = Number(document.getElementById('id').value)
-
-//     res.innerHTML = ''
-
-//     fetch(`http://localhost:3000/usuario/{id}`)
-//     .then(resp => resp.json())
-//     .then(dados =>{
-//         dados.forEach(dad => {
-//             res.innerHTML += `<hr>`
-//             res.innerHTML += `O código do usuário é: ${dad.idUsuario} <br>`
-//             res.innerHTML += `O nome é: ${dad.primeiroNome} <br>`
-//             res.innerHTML += `O sobrenome é: ${dad.sobrenome} <br>`
-//             res.innerHTML += `A idade é: ${dad.idade} <br>`
-//             res.innerHTML += `O email é: ${dad.email} <br>`
-//             res.innerHTML += `O telefone é: ${dad.telefone} <br>`
-//             res.innerHTML += `O endereço é: ${dad.endereco} <br>`
-//             res.innerHTML += `A cidade é: ${dad.cidade} <br>`
-//             res.innerHTML += `O estado é: ${dad.estado} <br>`
-//             res.innerHTML += `A data de nascimento é: ${dad.dataNasci} <br>`
-//             res.innerHTML += `<hr>`
-//         })
-//     })
-//     .catch((err)=>{
-//         console.error('Erro ao consultar o usuário!',err)
-//     })
-// })
+    fetch(`http://localhost:3000/produto`)
+    .then(resp => resp.json())
+    .then(dados => {
+        const produto = dados.find(dad => dad.titulo.toLowerCase() === nome.toLowerCase()); 
+        if (produto) {
+            res.innerHTML = `Nome do Produto: ${produto.titulo} <br>
+            Descrição: ${produto.descricao} <br>
+            Categoria: ${produto.categoria} <br>
+            Preço: R$ ${produto.preco} <br>
+            Porcentagem de Desconto: ${produto.porcentagemDesconto}%  <br>
+            Estoque: ${produto.estoque} <br>
+            Marca: ${produto.marca} <br>
+            Imagem: <br> <img src="${produto.imagem}">`
+        } else {
+            res.innerHTML = "Nome não encontrado, tente novamente!";
+        }
+    })
+    .catch((err)=>{
+        console.error("erro: ", err)
+    })
+})

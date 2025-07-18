@@ -1,32 +1,29 @@
-// let res = document.getElementById('res')
+let res = document.getElementById("res")
+let procuraId = document.getElementById("procuraId")
 
-// let conUs = document.getElementById('conUs')
+procuraId.addEventListener("click", (e) => {
+    e.preventDefault()
 
-// conUs.addEventListener('click', ()=>{
+    let id = Number(document.getElementById("id").value)
 
-//     const id = Number(document.getElementById('id').value)
-
-//     res.innerHTML = ''
-
-//     fetch(`http://localhost:3000/usuario/{id}`)
-//     .then(resp => resp.json())
-//     .then(dados =>{
-//         dados.forEach(dad => {
-//             res.innerHTML += `<hr>`
-//             res.innerHTML += `O código do usuário é: ${dad.idUsuario} <br>`
-//             res.innerHTML += `O nome é: ${dad.primeiroNome} <br>`
-//             res.innerHTML += `O sobrenome é: ${dad.sobrenome} <br>`
-//             res.innerHTML += `A idade é: ${dad.idade} <br>`
-//             res.innerHTML += `O email é: ${dad.email} <br>`
-//             res.innerHTML += `O telefone é: ${dad.telefone} <br>`
-//             res.innerHTML += `O endereço é: ${dad.endereco} <br>`
-//             res.innerHTML += `A cidade é: ${dad.cidade} <br>`
-//             res.innerHTML += `O estado é: ${dad.estado} <br>`
-//             res.innerHTML += `A data de nascimento é: ${dad.dataNasci} <br>`
-//             res.innerHTML += `<hr>`
-//         })
-//     })
-//     .catch((err)=>{
-//         console.error('Erro ao consultar o usuário!',err)
-//     })
-// })
+    fetch(`http://localhost:3000/usuario/${id}`)
+    .then(resp => resp.json())
+    .then(dados => {
+        console.log(dados)
+        if (dados) {
+            res.innerHTML = `Nome: ${dados.primeiroNome} ${dados.sobrenome}<br>
+            Idade: ${dados.idade}<br>
+            Email: ${dados.email}<br>
+            Telefone: ${dados.telefone}<br>
+            Endereço: ${dados.endereco}<br>
+            Cidade: ${dados.cidade}<br>
+            Estado: ${dados.estado}<br>
+            Data de Nascimento: ${dados.dataNasci}<hr>`
+        } else {
+            res.innerHTML = "Id inválido, tente novamente.";
+        }
+    })
+    .catch((err)=>{
+        console.error("erro: ", err)
+    })
+})

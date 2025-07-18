@@ -4,33 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/style2.css">
-    <script src="../../assets/js/produto/consultarNmPro.js"defer></script>
-    <title>Consultar Nome</title>
+    <script src="../../assets/js/produto/consultarNmPro.js" defer></script>
+    <title>Procurar</title>
 </head>
 <body>
-        <br>
-        <div class="box">
-    <h1>Consultar o Produto por Nome</h1>
-        <hr>
-        <br>
-    <nav>
-        <button onclick="location.href='../../index.html'">Principal</button>
-        <button onclick="location.href='../produto.html'">Produto</button>
-    </nav>
     <br>
+    <div class="box">
+    <h1>Procurar Produto por Nome</h1>
     <hr>
     <br>
+<nav>
+    <button onclick="location.href='../../index.html'">Principal</button>
+    <button onclick="location.href='../produto.html'">Produto</button>
+</nav>
+<br>
+<hr>
+<br>
     <form>
-        <label for="titulo">Digite o título:</label><br>
-        <input type="text" id="titulo" placeholder="Ex.: Lip Gloss rosa"><br><br>
-        <hr>
-        <br>
-        <button type="submit" id="conPro">Consultar</button><br><br>
-        <hr>
+        <label for="nome">Digite o nome do Produto:</label>
+        <input type="text" id="nome" placeholder="Ex.: Maça">
+
+        <button id="procuraNome">Procurar</button>
+
     </form>
-        <div class="resbox">
-    <div id="res"></div>
+    <div class="resbox">
+        <div id="res"></div>
     </div>
-    </div>
+</div>
 </body>
 </html>

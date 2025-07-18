@@ -1,28 +1,25 @@
-export default function generatePurchaseReport(purchases) {
-    const reportTable = document.createElement('table');
-    reportTable.innerHTML = `
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>User Name</th>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Date</th>
-                <th>Final Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${purchases.map(purchase => `
-                <tr>
-                    <td>${purchase.id}</td>
-                    <td>${purchase.userName}</td>
-                    <td>${purchase.productName}</td>
-                    <td>${purchase.quantity}</td>
-                    <td>${new Date(purchase.date).toLocaleDateString()}</td>
-                    <td>${purchase.finalPrice.toFixed(2)}</td>
-                </tr>
-            `).join('')}
-        </tbody>
-    `;
-    document.body.appendChild(reportTable);
-}
+async function listarCompras() {
+    const response = await fetch('http://localhost:3000/compra');
+    return response.json();
+  }
+  
+  document.addEventListener('DOMContentLoaded', async () => {
+    const tabela = document.querySelector('#tabelaCompras');
+    const compras = await listarCompras();
+    tabela.innerHTML = '';
+    compras.forEach(compra => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${compra.idCompra || compra.id}</td>
+        <td>${compra.quantidade}</td>
+        <td>${compra.dataCompra}</td>
+        <td>${compra.precoUnit}</td>
+        <td>${compra.desconto}</td>
+        <td>${compra.precoFinal}</td>
+        <td>${compra.pagamento}</td>
+        <td>${compra.status}</td>
+        <td>${compra.fk_idUsuario}</td>
+        <td>${compra.fk_idProduto}</td>`;
+      tabela.appendChild(tr);
+    });
+  });

@@ -40,11 +40,12 @@ updCom.addEventListener('click', (e)=>{
     .then(resp => resp.json())
     .then(dados =>{
 
+        console.log(dados)
         res.innerHTML += `A código da compra atualizado é: ${dados.idCompra} <br>`
         res.innerHTML += `A quantidade atualizada é: ${dados.quantidade} <br>`
         res.innerHTML += `A data da compra atualizada é: ${dados.dataCompra} <br>`
         res.innerHTML += `O preço unitário atualizado é: ${dados.precoUnit} <br>`
-        res.innerHTML += `O desconto atualizado é: ${dados.desconto} <br>`
+        res.innerHTML += `O desconto atualizado é: ${dados.desconto} % <br>`
         res.innerHTML += `O preço final atualizado é: ${dados.precoFinal} <br>`
         res.innerHTML += `A forma pagamento atualizada é: ${dados.pagamento} <br>`
         res.innerHTML += `O status atualizado é: ${dados.status} <br>`

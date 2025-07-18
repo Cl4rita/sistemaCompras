@@ -1,25 +1,21 @@
-export const generateCriticalStockReport = (products) => {
-    const criticalStockProducts = products.filter(product => product.stock < 10);
-    
-    const reportTable = document.createElement('table');
-    reportTable.innerHTML = `
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Stock</th>
-                <th>Category</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${criticalStockProducts.map(product => `
-                <tr>
-                    <td>${product.title}</td>
-                    <td>${product.stock}</td>
-                    <td>${product.category}</td>
-                </tr>
-            `).join('')}
-        </tbody>
-    `;
+async function listarEstoques() {
+  const response = await fetch('http://localhost:3000/produto');
+  return response.json();
+}
 
-    document.body.appendChild(reportTable);
-};
+document.addEventListener('DOMContentLoaded', async () => {
+  const tabela = document.querySelector('#tabelaProdutos');
+  const produtos = await listarEstoques();
+  tabela.innerHTML = '';
+  produtos.forEach(produto => {
+    if (produto.estoque < 10){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${produto.idProduto || produto.id}</td>
+        <td>${produto.titulo}</td>
+        <td>${produto.categoria}</td>
+        <td>${produto.estoque}</td>`;
+        tabela.appendChild(tr);
+    }
+  });
+});
