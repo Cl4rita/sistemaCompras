@@ -15,22 +15,22 @@ document.getElementById('gerarGraficos').addEventListener('click', async () => {
   // Fetch produtos
   const productPromises = [];
   for (let i = startId; i <= endId && productPromises.length < maxItems; i++) {
-    productPromises.push(fetch(`https://dummyjson.com/products/${i}`).then(res => res.json()));
+    productPromises.push(fetch(`http://localhost:3000/produto/${i}`).then(res => res.json()));
   }
   const products = await Promise.all(productPromises);
 
-  const productLabels = products.map(p => p.title);
-  const productStock = products.map(p => p.stock);
+  const productLabels = products.map(p => p.titulo);
+  const productStock = products.map(p => p.estoque);
 
   // Fetch usuários
   const userPromises = [];
   for (let i = startId; i <= endId && userPromises.length < maxItems; i++) {
-    userPromises.push(fetch(`https://dummyjson.com/users/${i}`).then(res => res.json()));
+    userPromises.push(fetch(`http://localhost:3000/usuario/${i}`).then(res => res.json()));
   }
   const users = await Promise.all(userPromises);
 
-  const userLabels = users.map(u => `${u.firstName} ${u.lastName}`);
-  const userAges = users.map(u => u.age);
+  const userLabels = users.map(u => `${u.primeiroNome} ${u.sobrenome}`);
+  const userAges = users.map(u => u.idade);
 
   // Criar os gráficos
   renderChart('productChart', 'Produtos x Estoque', productLabels, productStock, 'Estoque');
