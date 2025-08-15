@@ -1,10 +1,63 @@
 const Compra = require('../model/Compra')
+const Produto = require('../model/Produto')
 
 const cadastrar = async (req,res) => {
     const valores = req.body
+    console.log(valores)
     try{
-        const dados = await Compra.create(valores)
-        res.status(201).json(dados)
+        let produto = await Produto.findByPk(valores.fk_idProduto)
+        if(produto === null){
+            console.log(produto)
+            req.status(404).json({message: 'Produto não encontrado'})
+        }else{
+            let precoUnit = produto.preco
+            let desconto = produto.porcentagemDesconto
+            let estoqueNovo = produto.estoque
+            let quantidade = valores.quantidade
+            let precoSemDesc = 0
+            let precoFinal = 0
+
+            if(valores.quantidade > produto.estoque){
+    
+                //http status 422 indica que a requisição nãao pode ser processada por regra de negócio
+                res.status(422).json({message: 'Quantidade insuficiente de produto'})
+    
+            }else{
+                estoqueNovo = estoqueNovo - quantidade
+                precoSemDesc = (quantidade * precoUnit)
+                precoFinal = precoSemDesc - ((precoSemDesc * desconto / 100))
+                
+                const prodAtual = {
+                    titulo : produto.titulo,
+                    descricao: produto.descricao,
+                    categoria: produto.categoria,
+                    preco: produto.preco,
+                    porcentagemDesconto: produto.porcentagemDesconto,
+                    estoque: estoqueNovo,
+                    marca: produto.marca,
+                    imagem: produto.imagem
+                }
+                
+                await Produto.update(prodAtual, {where: {idProduto: produto.idProduto}})
+
+                const compraFinal = {
+                    quantidade: valores.quantidade,
+                    dataCompra: valores.dataCompra,
+                    precoUnit: produto.preco,
+                    desconto: produto.porcentagemDesconto,
+                    precoFinal: precoFinal,
+                    pagamento: valores.pagamento,
+                    status: 'Vendido',
+                    fk_idProduto: valores.fk_idProduto,
+                    fk_idUsuario: valores.fk_idUsuario
+                }
+
+                const dados = await Compra.create(compraFinal)
+                res.status(201).json(dados)
+            }
+        }
+
+
     }catch(err){
         console.error('Erro ao cadastrar a compra', err)
         res.status(500).json({message: 'Erro ao cadastrar a compra'})

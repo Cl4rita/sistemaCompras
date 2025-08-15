@@ -1,10 +1,10 @@
-let res = document.getElementById("res")
-let procuraId = document.getElementById("procuraId")
+let res = document.getElementById('res')
+let consultaId = document.getElementById('consultaId')
 
-procuraId.addEventListener("click", (e) => {
+consultaId.addEventListener('click', (e) => {
     e.preventDefault()
 
-    let id = Number(document.getElementById("id").value)
+    let id = Number(document.getElementById('id').value)
 
     fetch(`http://localhost:3000/usuario/${id}`)
     .then(resp => resp.json())
@@ -20,10 +20,10 @@ procuraId.addEventListener("click", (e) => {
             Estado: ${dados.estado}<br>
             Data de Nascimento: ${dados.dataNasci}<hr>`
         } else {
-            res.innerHTML = "Id inválido, tente novamente.";
+            res.innerHTML = 'Id inválido, tente novamente.';
         }
     })
     .catch((err)=>{
-        console.error("erro: ", err)
+        console.error('Erro ao consultar o Id do usuário.', err)
     })
 })

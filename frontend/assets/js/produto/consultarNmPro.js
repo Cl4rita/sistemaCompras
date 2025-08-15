@@ -1,10 +1,10 @@
-let res = document.getElementById("res")
-let procuraNome = document.getElementById("procuraNome")
+let res = document.getElementById('res')
+let procuraNome = document.getElementById('procuraNome')
 
-procuraNome.addEventListener("click", (e) => {
+procuraNome.addEventListener('click', (e) => {
     e.preventDefault()
 
-    let nome = document.getElementById("nome").value
+    let nome = document.getElementById('nome').value
 
     fetch(`http://localhost:3000/produto`)
     .then(resp => resp.json())
@@ -20,10 +20,10 @@ procuraNome.addEventListener("click", (e) => {
             Marca: ${produto.marca} <br>
             Imagem: <br> <img src="${produto.imagem}">`
         } else {
-            res.innerHTML = "Nome não encontrado, tente novamente!";
+            res.innerHTML = 'Nome não encontrado, tente novamente!';
         }
     })
     .catch((err)=>{
-        console.error("erro: ", err)
+        console.error('Erro ao consultar o Id do usuário.', err)
     })
 })

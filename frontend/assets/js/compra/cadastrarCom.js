@@ -7,23 +7,15 @@ cadCom.addEventListener('click', (e)=>{
 
     const quantidade = Number(document.getElementById('quantidade').value)
     const dataCompra = document.getElementById('dataCompra').value
-    const precoUnit = Number(document.getElementById('precoUnit').value)
-    const desconto = Number(document.getElementById('desconto').value)
     const pagamento = document.getElementById('pagamento').value
-    const status = document.getElementById('status').value
+    
     const fk_idUsuario = Number(document.getElementById('fk_idUsuario').value)
     const fk_idProduto = Number(document.getElementById('fk_idProduto').value)
-
-    const precoFinal = (Number((precoUnit * quantidade) - (desconto/100))).toFixed(2)
 
     const valores = {
         quantidade: quantidade,
         dataCompra: dataCompra,
-        precoUnit: precoUnit,
-        desconto: desconto,
-        precoFinal: precoFinal,
         pagamento: pagamento,
-        status: status,
         fk_idUsuario: fk_idUsuario,
         fk_idProduto: fk_idProduto
     }

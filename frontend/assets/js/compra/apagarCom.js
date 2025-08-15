@@ -19,7 +19,7 @@ delCom.addEventListener('click', (e)=>{
         if(resp.status === 204){
             res.innerHTML += `Os dados foram excluídos com sucesso!`
         }else{
-            res.innerHTML += `Compra não encontrado!`
+            res.innerHTML += `Compra não encontrada!`
         }
     })
     .catch((err)=>{
